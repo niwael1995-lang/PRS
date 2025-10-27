@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Compliance from "@/components/Compliance";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Jobs from "@/components/Jobs";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <About />
       <Services />
       <WhyChooseUs />
+  <Jobs />
       <Compliance />
       <Contact />
       <Footer />

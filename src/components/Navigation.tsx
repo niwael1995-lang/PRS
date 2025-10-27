@@ -23,6 +23,7 @@ const Navigation = () => {
   };
 
   const navItems = [
+    { label: "Jobs", id: "jobs" },
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
     { label: "Services", id: "services" },
