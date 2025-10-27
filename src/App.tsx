@@ -5,20 +5,38 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import JobsPage from "./pages/JobsPage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import WhyChooseUsPage from "./pages/WhyChooseUsPage";
+import CompliancePage from "./pages/CompliancePage";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+      <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Navigation />
+        <main className="pt-20">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/jobs" element={<JobsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/why-choose-us" element={<WhyChooseUsPage />} />
+            <Route path="/compliance" element={<CompliancePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
