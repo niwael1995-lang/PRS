@@ -22,14 +22,15 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Reordered navigation per request: Home, Services, Jobs, Compliance, Why Choose Us, About, Contact Us
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Jobs", path: "/jobs" },
-    { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
-    { label: "Why Choose Us", path: "/why-choose-us" },
+    { label: "Jobs", path: "/jobs" },
     { label: "Compliance", path: "/compliance" },
-    { label: "Contact", path: "/contact" },
+    { label: "Why Choose Us", path: "/why-choose-us" },
+    { label: "About", path: "/about" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   return (
