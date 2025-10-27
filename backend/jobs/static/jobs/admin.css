@@ -1,0 +1,25 @@
+/* Custom admin styles for Vacancy model (jobs app) */
+
+/* Improve table header contrast on the change-list */
+.app-jobs.model-vacancy .change-list thead th {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #0f172a; /* gray-900 */
+}
+
+/* Slightly larger padding for change-list cells */
+.app-jobs.model-vacancy .change-list tbody td {
+  padding: 10px 14px;
+}
+
+/* Highlight salary columns to stand out */
+.app-jobs.model-vacancy .change-list tbody td:nth-child(3),
+.app-jobs.model-vacancy .change-list tbody th:nth-child(3),
+.app-jobs.model-vacancy .change-list tbody td:nth-child(4),
+.app-jobs.model-vacancy .change-list tbody th:nth-child(4) {
+  background-color: rgba(99,102,241,0.06); /* subtle indigo tint */
+}
+
+/* Style the vacancy form labels to be a bit bolder */
+.app-jobs.model-vacancy .form-row .form-label {
+  font-weight: 600;
+}
