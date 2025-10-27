@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">GlobalWorkforce</h3>
+            <h3 className="text-2xl font-bold mb-4">Professional Recruitment Services</h3>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Connecting global talent with international opportunities through ethical, efficient, and compliant recruitment.
             </p>
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/70">
-              © {currentYear} GlobalWorkforce. All rights reserved.
+              © {currentYear} Professional Recruitment Services. All rights reserved.
             </p>
             <p className="text-sm text-primary-foreground/70">
               Certified for Ethical Recruitment Excellence

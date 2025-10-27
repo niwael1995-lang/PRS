@@ -40,7 +40,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center">
             <h1 className="text-xl lg:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              GlobalWorkforce
+              Professional Recruitment Services
             </h1>
           </div>
 

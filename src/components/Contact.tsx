@@ -29,8 +29,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "partnerships@globalworkforce.com",
-      href: "mailto:partnerships@globalworkforce.com",
+      content: "partnerships@professionalrecruitment.com",
+      href: "mailto:partnerships@professionalrecruitment.com",
     },
     {
       icon: Phone,
