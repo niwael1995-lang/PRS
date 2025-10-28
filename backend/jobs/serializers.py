@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Vacancy, Interview
+from .models import Vacancy, Interview, Application
 
 
 class VacancySerializer(serializers.ModelSerializer):
@@ -23,3 +23,19 @@ class InterviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interview
         fields = ["id", "vacancy", "candidate_name", "scheduled_at", "location", "notes"]
+
+
+class ApplicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Application
+        fields = [
+            "id",
+            "vacancy",
+            "name",
+            "email",
+            "phone",
+            "message",
+            "cv",
+            "created_at",
+        ]
+        read_only_fields = ["id", "created_at"]

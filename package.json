@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "dev": "vite",
+  "build": "vite build",
+  "build:dev": "vite build --mode development",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "build:admin-css": "npx tailwindcss -c ./tailwind.admin.config.cjs -i ./src/admin/admin.css -o ./backend/static/admin/custom_admin.css --minify",
+  "watch:admin-css": "npx tailwindcss -c ./tailwind.admin.config.cjs -i ./src/admin/admin.css -o ./backend/static/admin/custom_admin.css --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -75,6 +77,7 @@
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.11",
     "postcss": "^8.5.6",
+    "tailwind": "^4.0.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",

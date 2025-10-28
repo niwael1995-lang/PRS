@@ -1,6 +1,7 @@
 from rest_framework import generics
-from .models import Vacancy, Interview
-from .serializers import VacancySerializer, InterviewSerializer
+from rest_framework.permissions import AllowAny
+from .models import Vacancy, Interview, Application
+from .serializers import VacancySerializer, InterviewSerializer, ApplicationSerializer
 
 
 class VacancyList(generics.ListAPIView):
@@ -11,3 +12,10 @@ class VacancyList(generics.ListAPIView):
 class InterviewList(generics.ListAPIView):
     queryset = Interview.objects.select_related("vacancy").order_by("scheduled_at")
     serializer_class = InterviewSerializer
+
+
+class ApplicationCreate(generics.CreateAPIView):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+    permission_classes = [AllowAny]
+    authentication_classes: list = []

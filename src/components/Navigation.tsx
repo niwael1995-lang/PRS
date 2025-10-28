@@ -23,14 +23,13 @@ const Navigation = () => {
   };
 
   // Reordered navigation per request: Home, Services, Jobs, Compliance, Why Choose Us, About, Contact Us
-  const navItems = [
+  const navItems: Array<{ label: string; path: string }> = [
     { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
     { label: "Jobs", path: "/jobs" },
     { label: "Compliance", path: "/compliance" },
     { label: "Why Choose Us", path: "/why-choose-us" },
     { label: "About", path: "/about" },
-    { label: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -42,7 +41,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center">
-            <h1 className="text-xl lg:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="site-title text-xl lg:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Professional Recruitment Services
             </h1>
           </div>
@@ -52,13 +51,16 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => goTo((item as any).path || "/")}
-                className="text-foreground/80 hover:text-foreground font-medium transition-colors"
+                onClick={() => goTo(item.path)}
+                className="nav-link text-foreground/80 hover:text-foreground font-medium transition-colors"
               >
                 {item.label}
               </button>
             ))}
-            <Button onClick={() => goTo("/contact")} className="bg-accent hover:bg-accent/90">
+            <Button
+              onClick={() => goTo("/contact")}
+              className="nav-cta bg-accent hover:bg-accent/90"
+            >
               Contact Us
             </Button>
           </div>
@@ -80,13 +82,16 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => goTo((item as any).path || "/")}
-                  className="text-left text-foreground/80 hover:text-foreground font-medium transition-colors px-2 py-1"
+                  onClick={() => goTo(item.path)}
+                  className="nav-link text-left text-foreground/80 hover:text-foreground font-medium transition-colors px-2 py-1"
                 >
                   {item.label}
                 </button>
               ))}
-              <Button onClick={() => goTo("/contact") } className="bg-accent hover:bg-accent/90">
+              <Button
+                onClick={() => goTo("/contact")}
+                className="nav-cta bg-accent hover:bg-accent/90"
+              >
                 Contact Us
               </Button>
             </div>

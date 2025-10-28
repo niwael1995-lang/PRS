@@ -1,0 +1,29 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block content %}
+	{% if original %}
+	<div class="application-card">
+		<h2>{{ original.name }} — {{ original.vacancy.title }}</h2>
+		<div class="application-meta">
+			<strong>{% trans "Email" %}:</strong> {{ original.email }}
+			{% if original.phone %} &nbsp;•&nbsp; <strong>{% trans "Phone" %}:</strong> {{ original.phone }} {% endif %}
+			&nbsp;•&nbsp; <strong>{% trans "Submitted" %}:</strong> {{ original.submitted_at|date:"Y-m-d H:i" }}
+		</div>
+		{% if original.message %}
+			<div class="application-message">
+				{{ original.message }}
+			</div>
+		{% endif %}
+		<div class="application-actions">
+			{% if original.cv %}
+				<a class="button" href="{{ original.cv.url }}" download>{% trans "Download CV" %}</a>
+			{% else %}
+				<em>{% trans "No CV uploaded" %}</em>
+			{% endif %}
+		</div>
+	</div>
+	{% else %}
+		<p>{% trans "No applicant found." %}</p>
+	{% endif %}
+{% endblock %}

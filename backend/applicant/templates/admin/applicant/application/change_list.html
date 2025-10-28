@@ -1,0 +1,39 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls %}
+
+{% block content_title %}{% blocktrans %}Select Applicant to view{% endblocktrans %}{% endblock %}
+
+{% block result_list %}
+  {% if cl.result_count %}
+    <div class="application-grid">
+      {% for obj in cl.result_list %}
+        <div class="application-card">
+          <h3>
+            <a href="{% url cl.opts|admin_urlname:'change' obj.pk %}">
+              {{ obj.name }} — {{ obj.vacancy.title }}
+            </a>
+          </h3>
+          <div class="application-meta">
+            <strong>{% trans "Email" %}:</strong> {{ obj.email }}
+            {% if obj.phone %} &nbsp;•&nbsp; <strong>{% trans "Phone" %}:</strong> {{ obj.phone }} {% endif %}
+            &nbsp;•&nbsp; <strong>{% trans "Submitted" %}:</strong> {{ obj.submitted_at|date:"Y-m-d H:i" }}
+          </div>
+          {% if obj.message %}
+            <div class="application-message">
+              {{ obj.message|truncatechars:220 }}
+            </div>
+          {% endif %}
+          <div class="application-actions">
+            {% if obj.cv %}
+              <a class="button" href="{{ obj.cv.url }}" download>{% trans "Download CV" %}</a>
+            {% else %}
+              <em>{% trans "No CV uploaded" %}</em>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>{% trans "No applicants available." %}</p>
+  {% endif %}
+{% endblock %}

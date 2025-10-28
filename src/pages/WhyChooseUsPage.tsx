@@ -1,7 +1,9 @@
 import WhyChooseUs from "@/components/WhyChooseUs";
+import QuickLinks from "@/components/QuickLinks";
 
 const WhyChooseUsPage = () => (
-  <div className="min-h-screen">
+  <div className="page-card min-h-screen">
+    <QuickLinks />
     <WhyChooseUs />
   </div>
 );

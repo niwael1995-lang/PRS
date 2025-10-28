@@ -1,7 +1,9 @@
 import Services from "@/components/Services";
+import QuickLinks from "@/components/QuickLinks";
 
 const ServicesPage = () => (
-  <div className="min-h-screen">
+  <div className="page-card min-h-screen">
+    <QuickLinks />
     <Services />
   </div>
 );

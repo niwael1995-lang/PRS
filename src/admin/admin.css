@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mirror the existing custom_admin.css but implemented with Tailwind @apply so
+   templates/content don't need to change. This file will be compiled to
+   backend/static/admin/custom_admin.css by the admin build script.
+*/
+
+.module h1,
+.module h2 {
+  @apply mt-1 mb-2; /* 0.25rem top, 0.5rem bottom */
+}
+
+.change-list .results table th,
+.change-list .results table td {
+  @apply py-2 px-3; /* 0.5rem vertical, 0.75rem horizontal */
+}

@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Users, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-workforce.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -11,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="hero-section relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -24,28 +27,29 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-3xl">
-          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm rounded-full border border-accent/30">
+        <div className="hero-content max-w-3xl">
+          <p className="hero-eyebrow">Global workforce professionals</p>
+          <div className="hero-pill mb-6 inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm rounded-full border border-accent/30">
             <Globe className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-primary-foreground">
               Connecting Global Talent with Opportunities
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+          <h1 className="hero-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
             Strategic Workforce Solutions for a{" "}
             <span className="text-accent">Global Economy</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+          <p className="hero-text text-lg sm:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
             We specialize in sourcing, screening, and deploying skilled and semi-skilled workers to meet the evolving workforce needs of international employers. Built on ethics, efficiency, and excellence.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="hero-actions flex flex-col sm:flex-row gap-4 mb-12">
             <Button
               size="lg"
-              onClick={() => scrollToSection("contact")}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow group"
+              onClick={() => navigate("/contact")}
+              className="hero-primary bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow group"
             >
               Partner With Us
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -53,8 +57,8 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("services")}
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              onClick={() => navigate("/services")}
+              className="hero-secondary border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
               Explore Our Services
             </Button>

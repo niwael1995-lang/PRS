@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{#
+  Override admin base to load Tailwind via the CDN so Tailwind utilities
+  are available in Django Admin. We disable Tailwind's preflight (CSS reset)
+  to avoid clobbering Django Admin default styles.
+#}
+
+{% block title %}{{ site_title|default:_("Django administration") }}{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+
+  <script>
+    // Provide a tailwind.config before the CDN loads to disable preflight
+    // (preflight resets default browser styles which would interfere with admin).
+    tailwind = window.tailwind || {};
+    tailwind.config = tailwind.config || {};
+    tailwind.config.corePlugins = Object.assign({}, tailwind.config.corePlugins, { preflight: false });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  {# Optional local admin overrides after Tailwind is available #}
+  <link rel="stylesheet" href="{% static 'admin/custom_admin.css' %}">
+
+{% endblock %}
